@@ -1,0 +1,17 @@
+@defer (when !!src()) {
+  @if (src().startsWith("blob:")) {
+    <img
+      [src]="src()"
+      [alt]="alt()"
+      class="h-full w-full object-cover object-center transition-all duration-300 ![position:unset]"
+    />
+  } @else {
+    <img
+      [ngSrc]="src()"
+      fill
+      [alt]="alt()"
+      [priority]="priority()"
+      class="h-full w-full object-cover object-center transition-all duration-300 ![position:unset]"
+    />
+  }
+}

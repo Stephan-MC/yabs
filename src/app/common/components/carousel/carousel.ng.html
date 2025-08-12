@@ -1,0 +1,31 @@
+<div class="carousel-inner">
+  @for (item of items(); track item.index) {
+    <div
+      class="carousel-item"
+      [class.z-10]="currentIndex() == item.index"
+      [ngClass]="[item.index == currentIndex() || item.index == currentIndex() - 1 || ($last && currentIndex() == 0) ? 'maximize' : 'minimize']"
+    >
+      <app-thumbnail [src]="item.url" />
+      <div
+        class="content"
+        [ngClass]="[item.index === currentIndex() ? 'show' : 'hide']"
+      >
+        {{ item.alt }}
+      </div>
+    </div>
+  }
+
+  <div class="thumbnails">
+    @for (item of thumbails(); track $index) {
+      <div
+        class="thumbnail-item"
+        (click)="logItem(item)"
+        (click)="currentIndex.set(item.index)"
+        (click)="computeInterval()"
+      >
+        <app-thumbnail [src]="item.url" />
+        <!-- <div class="content">{{ item.alt }}</div> -->
+      </div>
+    }
+  </div>
+</div>

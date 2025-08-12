@@ -1,0 +1,13 @@
+:host {
+	/* @apply block bg-primary relative overflow-hidden; */
+	display: block;
+	--tw-bg-opacity: 1;
+	background-color: var(--color-primary);
+	position: relative;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}

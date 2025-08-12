@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+	@keyframes content-in {
+		0% {
+			opacity: 0;
+			filter: blur(20px);
+			transform: translateY(50%);
+		}
+		100% {
+			opacity: 1;
+			filter: blur(0);
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes content-out {
+		0% {
+			opacity: 1;
+			filter: blur(0);
+			transform: translateY(0);
+		}
+		100% {
+			opacity: 0;
+			filter: blur(20px);
+			transform: translateY(50%);
+		}
+	}
+
+	@keyframes thumbnail-enter {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes maximize {
+		from {
+			height: 0%;
+			width: 0%;
+		}
+		to {
+			height: 100%;
+			width: 100%;
+		}
+	}
+}
+
+@layer base {
+	html,
+	body {
+		@apply scroll-smooth bg-slate-800;
+	}
+}

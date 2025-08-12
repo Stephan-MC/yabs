@@ -1,0 +1,22 @@
+<div class="py-2 mx-auto max-w-screen-lg">
+  @if (items().length) {
+    <app-carousel [items]=items() [autoplay]=true class="rounded-lg" id="carousel" />
+  }
+
+  <div class="grid gap-4 p-8 mt-5 sm:grid-cols-2 2xl:grid-cols-4">
+    @for (group of groups(); track $index) {
+      <div class="relative h-60 *:w-25 cursor-pointer group" (click)="[items.set(group.items), viewportScroller.scrollToAnchor('carousel', { behavior: 'smooth' })]">
+        @for (item of group.items.slice(0, 3); track $index) {
+          <div  [ngClass]="{ 'absolute bottom-0 left-1/2 hover:z-999 group-hover:scale-115 transition duration-200 -translate-x-1/2 aspect-2/4 overflow-hidden w-10 rounded-lg': true, '-rotate-30 group-hover:-rotate-35 -translate-x-6/7!': $first, 'rotate-30 group-hover:rotate-35 -translate-x-1/7': $last }">
+            <app-thumbnail [src]="item.url" />
+          </div>
+        }
+        <span class="w-full text-white">
+        {{ group.name }}
+        </span>
+      </div>
+    }
+  </div>
+</div>
+<router-outlet />
+
