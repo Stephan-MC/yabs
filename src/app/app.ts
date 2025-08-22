@@ -17,9 +17,9 @@ export class App {
 	groups = signal(
 		Array.from({ length: 4 }).map((_, i) => ({
 			name: `Group ${i + 1}`,
-			items: Array.from({ length: 7 }).map((_, j) => ({
-				url: `/images/property${j + 1}.png`,
-				alt: `Property ${j + 1}`,
+			items: Array.from({ length: 17 }).map((_, j) => ({
+				url: `/images/party${j + 1}.jpeg`,
+				alt: `Party ${j + 1}`,
 			})),
 		})),
 	);
